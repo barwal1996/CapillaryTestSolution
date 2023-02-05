@@ -1,1 +1,4 @@
 # CapillaryTestSolution
+In this implementation, the Foo class uses an AtomicReference to store the state of the service, which is represented as an enumeration type State. The setState method can be used to change the state, while the serviceRequest method uses a switch statement to determine the current state, and serves the request if the service is healthy (State.CLOSED), serves a limited number of requests and transitions back to closed if successful (State.PARTIALLY_OPEN), otherwise it rejects the request. The compareAndSet method is used to safely transition from State.PARTIALLY_OPEN to State.CLOSED.
+
+The Service class is an interface that defines the isHealthy method to check the health of the service and the serveRequest method to serve a request. The ServiceImpl class implements the Service interface and has a private variable healthy
